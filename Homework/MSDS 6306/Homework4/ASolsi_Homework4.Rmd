@@ -1,0 +1,53 @@
+---
+title: "ASolsi_Homework4"
+author: "Anjli Solsi"
+date: "June 2, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Question 1
+
+```{r, echo=TRUE}
+# install fivethirtyeight package 
+# install.packages("fivethirtyeight")
+
+# assign college_all_ages to data frame df
+library(fivethirtyeight)
+data(package = "fivethirtyeight")
+df <- college_all_ages
+
+# write out URL to the related news story
+vignette("fivethirtyeight", package = "fivethirtyeight")
+## http://fivethirtyeight.com/features/the-economic-guide-to-picking-a-college-major/
+
+# dimensions and column names of data frame
+dim(df)
+colnames(df)
+```
+
+### Question 2
+
+```{r, echo=TRUE}
+# column names of data frame df
+colnames(df)
+ncol(df)
+
+# generate a count of each unique major_category in the data frame
+library(dplyr)
+major_count <- df%>%count(major_category, sort=TRUE)
+major_count
+
+# barplot of major_count
+par(las=2) #make text perpendicular to axis
+barplot(height=major_count$n, width = 1, space=NULL, names.arg=major_count$major_category, ylab='Major Category', xlab="Count", main="The Economic Guide to Picking a College Major", col='forestgreen', horiz=TRUE, cex.names=0.5, font.lab=2, col.lab='darkorange', las=2, xlim=c(0,30))
+# mtext("Major Category", side = 2, line=1, outer=TRUE, col='darkorange') 
+
+#write the fivethirtyeight data to a csv file
+write.csv(df, file="college_data.csv", row.names = FALSE)
+```
+
+
