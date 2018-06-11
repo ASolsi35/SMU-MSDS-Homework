@@ -1,3 +1,9 @@
-Topics Included: Creating data frames from provided R packages Generating a count and barplot from subset of data frame
+Topics Included: Tidying Data in R 
 
-Source Used: 'fivethirtyeight' package in R, specifically 'college_all_ages' dataset
+Data Collection
+Summary: The data used in this program was provided by the SMU MSDS program. 
+There are two data files: yob2015.txt and yob2016.txt. Each file provides the following information regarding popular baby names for the specified year: First Name, Gender, and Amount of Children given that name. 
+
+Source Used: Data was provided by MSDS 6303 professor
+Files Used: y0b2016.txt: Data on popular baby names in the year 2016
+            yob2015.txt: Data on popular baby names in the year 2015
