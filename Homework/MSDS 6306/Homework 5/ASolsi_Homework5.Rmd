@@ -1,0 +1,77 @@
+---
+title: "ASolsi_Homework5"
+author: "Anjli Solsi"
+date: "June 9, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+
+```{r}
+# import yob2016.txt file, assign it to df, assign column names 
+df <- read.table("C:\\Users\\anjli\\OneDrive\\Documents\\SMU\\Doing Data Science\\Unit 5\\yob2016.txt", header=FALSE, sep=";", col.names=c("First Name", "Gender", "Amount of Children"))
+# display df 
+# df
+
+# summary and structure of df
+summary(df)
+str(df)
+
+# find mispelled name in data 
+grep("yyy$", df$First.Name, value=TRUE)
+
+# find row of misspelled name, remove from dataset, save as y2016
+which(df$First.Name == "Fionayyy", arr.ind=TRUE)
+y2016 <- df[-212,]
+```
+
+## Question 2
+
+
+```{r, echo=TRUE}
+# import yob2015, assign column names, assign to dataframe y2015
+y2015 <- read.table("C:\\Users\\anjli\\OneDrive\\Documents\\SMU\\Doing Data Science\\Unit 5\\yob2015.txt", header=FALSE, sep=",", col.names=c("First Name", "Gender", "Amount of Children"))
+# display y2015
+# y2015
+
+# display last ten rows of y2015
+tail(y2015, 10)
+```
+###### All the names are in alphabetical order starting with the letter Z, correspond to males, and the total amount of children given the name in 2015 is quite small (5).
+
+```{r}
+# merge y2015 and y2016 ensuring only names in both are included
+final <- merge(y2016, y2015, by=c("First.Name","Gender"))
+colnames(final) <- c("First Name", "Gender", "Total Children 2016", "Total Children 2015")
+```
+
+## Question 3
+
+```{r}
+# create new column and sum Amount of Children for both years
+group <- final[3:4]
+final$Total <- rowSums(group)
+
+# find sum of Total column 
+# Total number of children given popular names in 2015 and 2016:
+sum(final$Total)
+
+# sort the data by column Total
+final_sort <- final[order(-final$Total),]
+
+# display the 10 most popular names
+head(final_sort, 10)
+
+# omit boys and give the top 10 most popular girl's names 
+final_girls_sort <- subset(final_sort, final_sort$Gender=="F")
+head(final_girls_sort, 10)
+
+# write top 10 girl names and totals to csv file 
+girls_popular <- final_girls_sort[c(1,5)]
+output <- head(girls_popular, 10)
+write.csv(output, file="Top_10_Girl_Names.csv", row.names = FALSE, col.names = TRUE, sep=",")
+```

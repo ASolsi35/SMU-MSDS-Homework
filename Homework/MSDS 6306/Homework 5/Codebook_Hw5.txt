@@ -1,0 +1,24 @@
+Tidying Data Regarding Popular Baby Names in 2015 and 2016
+
+Data Collection
+Summary: The data used in this program was provided by the SMU MSDS program.
+There are two data files: yob2015.txt and yob2016.txt. Each file provides the
+following information for the specified year: First Name, Gender, and Amount of
+Children given that name. 
+
+Codebook 
+Variable Name	Variable 	                             Values/Explanation	 	              File Used
+df		data frame of popular baby names in 2016      First Name, Gender, Amount of Children  yob2016.txt
+y2016		above without mispelled name Fionayyy		First Name, Gender, Amount of Chidlren 
+y2015		popular baby names in 2015			First Name, Gender, Amount of Children yob2015.txt
+final 		merge data from y2016 and y2015			First Name, Gender, Total Children 2016, Total Children 2015
+group		columns of Total Children in 2015 and 2016      Total Children 2016, Total Children 2015
+final_sort	sort final in descending order 			First Name, Gender, Total Children 2016, Total Children 2015, Total
+final_girls_sort create subset of only Female data		First Name, Gender=F, Total Children 2016, Total Children 2015, Total
+girls_popular	data for First Name and Total of Females	First Name, Total
+output		top 10 girls names and totals			First Name, Total
+
+Gender		Gender of Baby					M=male, F=female
+First Name	First Name of Baby				
+Amont of Children	Number of Children given a specific name 
+
