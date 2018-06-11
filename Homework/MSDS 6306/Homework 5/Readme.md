@@ -7,11 +7,14 @@ There are two data files: yob2015.txt and yob2016.txt. Each file provides the fo
 Source Used: Data was provided by MSDS 6303 professor 
 
 Files Used:
+
 y0b2016.txt: Data on popular baby names in the year 2016
 
 yob2015.txt: Data on popular baby names in the year 2015
 
+
 Files Produced:
+
 ASolsi_Homework5.Rmd:Assignment completed in RMarkdown
 
 ASolsi_Homework5 (HTML): Knitted RMarkdown file 
